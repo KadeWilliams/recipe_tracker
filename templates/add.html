@@ -1,0 +1,9 @@
+{% include "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+<div class="container mt-3">
+    <h3>Add a recipe</h3>
+    <hr>
+    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+</div>
+{% endblock %}
