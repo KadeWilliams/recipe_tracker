@@ -3,10 +3,10 @@
     {% block content %}
     {% for recipe in recipes %}
     <div class="row">
-        <div class="card col-8 offset-2" style="width: 18rem;">
+        <div class="col card d-flex justify-content-center mb-3" style="width: 18rem;">
             <img src="{{recipe.image}}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Recipe: {{recipe.name}}</h5>
+                <h5 class="card-title">{{recipe.name}}</h5>
             </div>
             <ul class="list-group list-group-flush">
                 {% if recipe.cookbook_title != 'N/A' %}
@@ -19,7 +19,7 @@
             </ul>
             {% if recipe.url %}
             <div class="card-body">
-                <a href="{{recipe.url}}" class="card-link">Card link</a>
+                <a href="{{recipe.url}}" class="card-link">Recipe</a>
             </div>
             {% endif %}
         </div>

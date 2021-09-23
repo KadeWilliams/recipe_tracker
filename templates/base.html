@@ -14,13 +14,10 @@
 <body>
     {% include 'navbar.html' %}
     <div class="container mt-3">
-        {% block content %}
         <div class="row">
-            <h3 class='col-12'>Hello family member, welcome to a list of recipes</h3>
-            <a class="btn btn-primary" href="{{url_for('show_all')}}">Show All</a>
-            <a class="btn btn-primary" href="{{url_for('add')}}">Add Recipe</a>
+            {% block content %}
+            {% endblock %}
         </div>
-        {% endblock %}
     </div>
 
 </body>

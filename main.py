@@ -25,7 +25,7 @@ class Recipe(db.Model):
     has_been_cooked = db.Column(db.Boolean, nullable=False)
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
 def home():
     return render_template("index.html")
 
@@ -46,7 +46,6 @@ def add():
         db.session.add(recipe)
         db.session.commit()
         return redirect(url_for("home"))
-
     return render_template("add.html", form=recipe_form)
 
 
