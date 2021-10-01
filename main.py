@@ -27,7 +27,7 @@ class Recipe(db.Model):
 
 @app.route("/", methods=["GET"])
 def home():
-    return render_template("index.html")
+    return redirect(url_for("show_all"))
 
 
 @app.route("/add", methods=["GET", "POST"])
@@ -53,6 +53,15 @@ def add():
 def show_all():
     recipes = db.session.query(Recipe).all()
     return render_template("show_all.html", recipes=recipes)
+
+
+@app.route("/delete/<id>", methods=["GET", "POST"])
+def delete(id):
+    recipe = db.session.query(Recipe).filter_by(id=id).first()
+    db.session.delete(recipe)
+    db.session.commit()
+
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
